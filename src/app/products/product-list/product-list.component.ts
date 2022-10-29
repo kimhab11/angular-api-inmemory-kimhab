@@ -15,7 +15,7 @@ export class ProductListComponent implements OnInit {
   }
   edit = true;
   add = false;
-  products: Product[];
+  products: Product[] | undefined;
 
   constructor(private productService: ProductService) {
   }
@@ -40,6 +40,7 @@ export class ProductListComponent implements OnInit {
 
   setProductEdit(product: Product) {
     this.product.name = product.name;
+    // @ts-ignore
     this.product.id = product.id;
     this.edit = false;
     this.add = true;

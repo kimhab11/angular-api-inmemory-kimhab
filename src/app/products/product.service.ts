@@ -20,7 +20,7 @@ export class ProductService {
     );
   }
 
-  createProduct(product: Product): Observable<Product> {
+  createProduct(product: { name: string; id: null }): Observable<Product> {
     product.id = null;
     return this.http.post<Product>(this.productsUrl, product).pipe(
       catchError((error: HttpErrorResponse) => {
@@ -30,7 +30,7 @@ export class ProductService {
     )
   }
 
-  editProduct(product: Product): Observable<any> {
+  editProduct(product: { name: string; id: null }): Observable<any> {
     return this.http.put(this.productsUrl + product.id, product);
   }
 
